@@ -17,6 +17,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "nodemon": "^1.9.1",
     "sequelize-cli": "^2.3.1"
   }
 }
