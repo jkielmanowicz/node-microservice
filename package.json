@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "jasmine": "^2.4.1",
+    "nodemon": "^1.9.1",
     "sequelize-cli": "^2.3.1"
   },
   "repository": {
