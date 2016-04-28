@@ -1,0 +1,29 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microserve API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/users": {
+      "get": {
+        "operationId": "listUsers",
+        "summary": "List Users",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users."
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "consumes": [
+      "application/json"
+    ]
+  }
+}
