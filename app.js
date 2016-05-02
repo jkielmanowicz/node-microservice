@@ -16,7 +16,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -26,10 +26,13 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: true,
   sourceMap: true
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(logger('dev'));
+
 app.use('/', routes);
-app.use('/api', api);
+app.use('/api', api.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

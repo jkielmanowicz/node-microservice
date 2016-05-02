@@ -6,7 +6,7 @@ var basename  = path.basename(module.filename);
 var express = require('express');
 var router = express.Router();
 
-// var proposals = require('./proposals');
+var apis = {};
 
 fs
   .readdirSync(__dirname)
@@ -15,8 +15,25 @@ fs
   })
   .forEach(function(file) {
     var routeName = file.slice(0, file.length - 3);
-    var route = require(`./${routeName}`);
-    router.use(`/${routeName}`, route);
+    var api = require(`./${routeName}`);
+
+    if (api.swagger) {
+      apis[api.swagger.id] = api.swagger;
+    }
+    else {
+      console.warn(`Missing Swagger configuration for API: ${routeName}.`);
+    }
+
+    if (api.router) {
+      router.use(`/${routeName}`, api.router);
+    }
+    else {
+      console.warn(`Missing router for API: ${routeName}.`);
+    }
+      
   });
 
-module.exports = router;
+module.exports = {
+  apis: apis,
+  router: router
+};

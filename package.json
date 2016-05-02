@@ -18,10 +18,16 @@
     "mysql": "^2.10.2",
     "node-sass-middleware": "^0.9.8",
     "sequelize": "^3.21.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "tracer": "^0.8.3"
   },
   "devDependencies": {
+    "async": "^2.0.0-rc.3",
+    "doctrine": "^1.2.1",
+    "gulp": "^3.9.1",
     "jasmine": "^2.4.1",
+    "js-yaml": "^3.6.0",
+    "json-patch": "^0.5.0",
     "nodemon": "^1.9.1",
     "sequelize-cli": "^2.3.1"
   },

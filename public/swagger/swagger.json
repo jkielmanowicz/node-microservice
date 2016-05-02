@@ -1,29 +1,68 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Microserve API",
+    "title": "Microservice API",
     "version": "v1"
   },
+  "basePath": "/api",
   "paths": {
-    "/api/users": {
+    "consumes": [
+      "application/json"
+    ],
+    "/pets": {
       "get": {
-        "operationId": "listUsers",
-        "summary": "List Users",
-        "produces": [
-          "application/json"
-        ],
+        "description": "Returns all pets from the system that the user has access to",
         "responses": {
           "200": {
-            "description": "A list of users."
-          },
-          "401": {
-            "description": "Unauthorized"
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
           }
         }
       }
     },
-    "consumes": [
-      "application/json"
-    ]
+    "/users": {
+      "get": {
+        "description": "Returns all users from the Users table.",
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "datetime"
+        },
+        "updated_at": {
+          "type": "datetime"
+        }
+      }
+    }
   }
 }

@@ -2,7 +2,19 @@ var express = require('express');
 var models  = require('../../models');
 var router = express.Router();
 
-/* GET users listing. */
+swagger = {
+  id: 'proposals',
+  name: 'Proposals',
+  path: '/proposals',
+  operations: [
+    {
+      name: 'test',
+      path: '/:id',
+      http: 'get',
+      parameters: []
+    }
+  ]
+};
 
 router.get('/', function(req, res, next) {
 	models.proposal.findAndCountAll().then(function(result){
@@ -20,4 +32,7 @@ router.get('/:id', function(req, res, next) {
 	});
 });
 
-module.exports = router;
+module.exports = {
+  router: router,
+  // swagger: swagger
+};
