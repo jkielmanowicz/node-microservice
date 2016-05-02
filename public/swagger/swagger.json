@@ -6,24 +6,6 @@
   },
   "basePath": "/api",
   "paths": {
-    "consumes": [
-      "application/json"
-    ],
-    "/pets": {
-      "get": {
-        "description": "Returns all pets from the system that the user has access to",
-        "responses": {
-          "200": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Pet"
-              }
-            }
-          }
-        }
-      }
-    },
     "/users": {
       "get": {
         "description": "Returns all users from the Users table.",
